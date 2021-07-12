@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'mysql',
-  host: 'adiantedb.chzuksyax0u9.us-east-2.rds.amazonaws.com',
-  username: 'admin',
-  password: '12345678',
-  database: 'adiante_db',
+  host: 'localhost',
+  username: 'root',
+  password: 'root',
+  database: 'projeto_gama',
   define: {
     timestamps: true,
     underscored: true,
