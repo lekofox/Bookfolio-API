@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import User from '../models/user';
+import bcrypt from 'bcrypt'
 
 
 
@@ -58,8 +59,17 @@ class RegisterNewUser {
             })
         }
 
+        const { 
+            name, username, email, postalCode, readerClassification 
+        } = req.body
+
+        //Gerando hashpassword
+        const hashedpassword = await bcrypt.hash(req.body.password, 10)
+
         //Caso nenhuma condicional seja ativada, Usuário será registrado
-        await User.create(req.body)
+        await User.create({ 
+            name, username, email, password: hashedpassword, postalCode, readerClassification 
+        })
         console.log("Novo Usuário criado")
         } catch(err){
             console.log(err)
