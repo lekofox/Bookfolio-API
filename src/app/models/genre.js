@@ -10,7 +10,7 @@ class Genre extends Model {
         primaryKey: true,
         type: Sequelize.STRING
       },
-      name: Sesquelize.STRING,
+      name: Sequelize.STRING,
       description: Sequelize.STRING,
     }, {
       sequelize,
