@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 import { Router } from 'express';
+import RegisterNewUser from './app/controllers/RegisterNewUser';
 
 const routes = new Router();
 
@@ -10,6 +11,8 @@ routes.get('/', (req, res) => {
   });
 });
 
+//Post Routes
+routes.post('/v1/register', RegisterNewUser.store)
 
 
 export default routes;
