@@ -66,11 +66,12 @@ class RegisterNewUser {
         //Gerando hashpassword
         const hashedpassword = await bcrypt.hash(req.body.password, 10)
 
-        //Caso nenhuma condicional seja ativada, Usuário será registrado
+        //Caso nenhuma condicional seja ativada, Usuário será registrado e User será redirecionado para login
         await User.create({ 
             name, username, email, password: hashedpassword, postalCode, readerClassification 
         })
         console.log("Novo Usuário criado")
+        res.redirect('/v1/login')
         } catch(err){
             console.log(err)
             return res.status(500).json({
