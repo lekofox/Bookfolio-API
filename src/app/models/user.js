@@ -14,6 +14,10 @@ class User extends Model {
     email: Sequelize.STRING,
     password: Sequelize.STRING,
     postalCode: Sequelize.STRING,
+    logradouro: Sequelize.STRING,
+    localidade: Sequelize.STRING,
+    uf: Sequelize.STRING,
+    bairro: Sequelize.STRING,
     readerClassification: Sequelize.INTEGER
   }, {
     sequelize,

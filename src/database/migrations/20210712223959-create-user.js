@@ -23,6 +23,22 @@ module.exports = {
       postalCode: {
         type: Sequelize.STRING
       },
+      logradouro: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      bairro: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      localidade: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      uf: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       readerClassification: {
         type: Sequelize.INTEGER
       },
