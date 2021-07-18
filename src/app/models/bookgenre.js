@@ -11,8 +11,8 @@ class BookGenre extends Model {
         },
         book_id: Sequelize.INTEGER,
         genre_id: Sequelize.INTEGER,
+        book_title: Sequelize.STRING,
         genre_name: Sequelize.STRING,
-        book_name: Sequelize.STRING,
       },
       {
         sequelize,
@@ -25,8 +25,9 @@ class BookGenre extends Model {
 
   static associate(models) {
     BookGenre.hasMany(models.Book, { foreignKey: 'id', targetKey: 'book_id' });
-    BookGenre.hasMany(models.Specialization, { foreignKey: 'id', targetKey: 'genre_id' });
+    BookGenre.hasMany(models.Genre, { foreignKey: 'id', targetKey: 'genre_id' });
   }
 }
 
 export default BookGenre;
+
