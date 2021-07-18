@@ -13,17 +13,26 @@ class RegisterNewUser {
         const schema = await Yup.object().shape({
             name: Yup.string().required(),
             username: Yup.string().required(),
-            email: Yup.string().required(),
-            password: Yup.string().required(),
+            email: Yup.string().email('Email deve ser um email que existe').required(),
+            password: Yup.string().min(6, 'Senha deve conter no mínimo 6 caracteres').required(),
             postalCode: Yup.string().required(),
             readerClassification: Yup.string().required(),  
         });
 
         //Se algum dado estiver faltando retorna mensagem de falha de cadastro
         if (!(await schema.isValid(req.body))){
-            return res.status(400).json({
-                message: 'Falha ao cadastrar usuário; Por favor corrija os dados de cadastro'
-            })
+            try {
+                let validated = await schema.validate(req.body, { abortEarly: false });
+              } catch (err) {
+                  var error = {}
+                  error['message'] = []
+                for (let i = 0; i < err.errors.length; i++){
+                    console.log(err.errors[i])
+                    error['message'].push(err.errors[i])
+                }
+                return res.json(error)
+              }
+            
         };
 
         //Constante que retorna verdadeiro se o username enviado já está sendo utilizado
