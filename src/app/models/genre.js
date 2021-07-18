@@ -8,15 +8,19 @@ class Genre extends Model {
 
       id: {
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
       },
       name: Sequelize.STRING,
       description: Sequelize.STRING,
     }, {
       sequelize,
-      modelName: 'Genre',
+      modelName: 'genres',
     });
     return this;
+  }
+  static associate(models) {
+    Genre.belongsTo(models.BookGenre, { foreignKey: 'id', targetKey: 'genre_id' });
+    Genre.belongsToMany(models.Book, { through: 'books_genre' });
   }
 }
 

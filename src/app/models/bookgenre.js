@@ -17,15 +17,15 @@ class BookGenre extends Model {
       {
         sequelize,
         underscored: true,
-        tableName: 'Book_Genre',
+        tableName: 'books_genre',
       },
     );
     return this;
   }
 
   static associate(models) {
-    BookGenre.hasMany(models.Doctor, { foreignKey: 'crm', targetKey: 'doctor_crm' });
-    BookGenre.hasMany(models.Specialization, { foreignKey: 'id' });
+    BookGenre.hasMany(models.Book, { foreignKey: 'id', targetKey: 'book_id' });
+    BookGenre.hasMany(models.Specialization, { foreignKey: 'id', targetKey: 'genre_id' });
   }
 }
 

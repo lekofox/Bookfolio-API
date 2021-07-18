@@ -6,7 +6,7 @@ class User extends Model {
   super.init({
     id: {
       primaryKey: true,
-      type: Sequelize.STRING
+      type: Sequelize.INTEGER,
     },
     name: Sequelize.STRING,
     username: Sequelize.STRING,
@@ -16,7 +16,7 @@ class User extends Model {
     readerClassification: Sequelize.INTEGER
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'users',
   });
   return this;
 }

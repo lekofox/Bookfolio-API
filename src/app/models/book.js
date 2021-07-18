@@ -7,7 +7,7 @@ class Book extends Model {
       {
         id: {
           primaryKey: true,
-          type: Sequelize.STRING
+          type: Sequelize.INTEGER,
         },
         title: Sequelize.STRING,
         author: Sequelize.STRING,
@@ -22,10 +22,14 @@ class Book extends Model {
         sequelize,
         underscored: true,
         // Soft Delete set to true
-        tableName: 'Books',
+        tableName: 'books',
       },
     );
     return this;
+  }
+  static associate(models) {
+    Book.belongsTo(models.BookGenre, { foreignKey: 'id', targetKey: 'book_id' });
+    Book.belongsToMany(models.Genre, { through: 'books_genre' });
   }
 }
 
