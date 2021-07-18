@@ -32,6 +32,9 @@ module.exports = {
       rating: {
         type: Sequelize.INTEGER
       },
+      genre: {
+        type: Sequelize.STRING, 
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
