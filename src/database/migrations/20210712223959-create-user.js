@@ -43,14 +43,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       createdAt: {
+        field:'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
+        field: 'updated_at',
         allowNull: false,
         type: Sequelize.DATE
       },
-      deletedAt: {
+      deleted_at: {
         allowNull: true,
         type: Sequelize.DATE
       }

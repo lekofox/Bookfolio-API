@@ -23,8 +23,7 @@ class Book extends Model {
       },
       {
         sequelize,
-        underscored: false,
-        // Soft Delete set to true
+                // Soft Delete set to true
         paranoid: true,
         tableName: 'books',
       },

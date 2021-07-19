@@ -16,7 +16,6 @@ class Genre extends Model {
       },
       {
         sequelize,
-        underscored: false,
         tableName: 'genres',
       },
     );

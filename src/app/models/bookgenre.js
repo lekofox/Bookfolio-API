@@ -19,7 +19,6 @@ class BookGenre extends Model {
       },
       {
         sequelize,
-        underscored: false,
         tableName: 'books_genre',
       },
     );

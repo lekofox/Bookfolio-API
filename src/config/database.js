@@ -6,7 +6,7 @@ module.exports = {
   database: 'projeto_gama',
   define: {
     timestamps: true,
-    underscored: false,
-    underscoredAll: false,
+    underscored: true,
+    underscoredAll: true,
   },
 };

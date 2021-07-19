@@ -17,30 +17,32 @@ module.exports = {
       synopsis: {
         type: Sequelize.STRING
       },
-      publishingCompany: {
+      publishing_company: {
         type: Sequelize.STRING
       },
       language: {
         type: Sequelize.STRING
       },
-      publishDate: {
+      publish_date: {
         type: Sequelize.DATE
       },
-      pageNumber: {
+      page_number: {
         type: Sequelize.INTEGER
       },
       rating: {
         type: Sequelize.INTEGER
       },
       createdAt: {
+        field:'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
+        field: 'updated_at',
         allowNull: false,
         type: Sequelize.DATE
       },
-      deletedAt: {
+      deleted_at: {
         allowNull: true,
         type: Sequelize.DATE
       }
