@@ -11,10 +11,12 @@ class Genre extends Model {
         },
         name: Sequelize.STRING,
         description: Sequelize.STRING,
+        deletedAt:{type: Sequelize.DATE, defaultValue: null}
+
       },
       {
         sequelize,
-        underscored: true,
+        underscored: false,
         tableName: 'genres',
       },
     );

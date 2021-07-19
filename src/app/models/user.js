@@ -18,10 +18,13 @@ class User extends Model {
     localidade: Sequelize.STRING,
     uf: Sequelize.STRING,
     bairro: Sequelize.STRING,
-    readerClassification: Sequelize.INTEGER
+    readerClassification: Sequelize.INTEGER,
+    deletedAt:{type: Sequelize.DATE, defaultValue: null}
+
   }, {
     sequelize,
     modelName: 'users',
+    underscored: false
   });
   return this;
 }

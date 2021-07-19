@@ -26,7 +26,7 @@ module.exports = {
       genre_name: {
         type: Sequelize.STRING
       },
-      book_name: {
+      book_title: {
         type: Sequelize.STRING
       },
       
@@ -36,6 +36,10 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      deletedAt: {
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

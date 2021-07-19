@@ -18,11 +18,12 @@ class Book extends Model {
         publishDate: Sequelize.DATE,
         pageNumber: Sequelize.INTEGER,
         rating: Sequelize.INTEGER,
+        deletedAt:{type: Sequelize.DATE, defaultValue: null}
 
       },
       {
         sequelize,
-        underscored: true,
+        underscored: false,
         // Soft Delete set to true
         paranoid: true,
         tableName: 'books',

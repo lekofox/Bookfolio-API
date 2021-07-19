@@ -13,10 +13,13 @@ class BookGenre extends Model {
         genre_id: Sequelize.INTEGER,
         book_title: Sequelize.STRING,
         genre_name: Sequelize.STRING,
+        deletedAt:{type: Sequelize.DATE, defaultValue: null}
+
+
       },
       {
         sequelize,
-        underscored: true,
+        underscored: false,
         tableName: 'books_genre',
       },
     );

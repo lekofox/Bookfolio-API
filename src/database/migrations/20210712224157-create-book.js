@@ -32,15 +32,16 @@ module.exports = {
       rating: {
         type: Sequelize.INTEGER
       },
-      genre: {
-        type: Sequelize.STRING, 
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      deletedAt: {
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
