@@ -32,6 +32,7 @@ class Book extends Model {
   }
 
   static associate(models) {
+    Book.belongsTo(models.Author, {foreignKey: 'author'})
     Book.belongsTo(models.BookGenre, { foreignKey: 'id', targetKey: 'book_id' });
     Book.belongsToMany(models.Genre, { through: 'books_genre' });
   }

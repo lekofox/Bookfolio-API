@@ -12,7 +12,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       author: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        
+      },
+      author_id:{
+        type: Sequelize.INTEGER,
+        references: { model: 'authors', key: 'id' },
+        onUpdate: 'CASCADE',
       },
       synopsis: {
         type: Sequelize.STRING
