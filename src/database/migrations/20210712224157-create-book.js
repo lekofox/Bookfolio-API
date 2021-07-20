@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Books', {
+    await queryInterface.createTable('books', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,37 +12,49 @@ module.exports = {
         type: Sequelize.STRING
       },
       author: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        
+      },
+      author_id:{
+        type: Sequelize.INTEGER,
+        references: { model: 'authors', key: 'id' },
+        onUpdate: 'CASCADE',
       },
       synopsis: {
         type: Sequelize.STRING
       },
-      publishingCompany: {
+      publishing_company: {
         type: Sequelize.STRING
       },
       language: {
         type: Sequelize.STRING
       },
-      publishDate: {
+      publish_date: {
         type: Sequelize.DATE
       },
-      pageNumber: {
+      page_number: {
         type: Sequelize.INTEGER
       },
       rating: {
         type: Sequelize.INTEGER
       },
       createdAt: {
+        field:'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
+        field: 'updated_at',
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      deleted_at: {
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Books');
+    await queryInterface.dropTable('books');
   }
 };
