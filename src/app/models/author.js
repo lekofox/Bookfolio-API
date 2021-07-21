@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 import Model from './baseModel';
 
-class Genre extends Model {
+class Author extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -16,16 +16,15 @@ class Genre extends Model {
       },
       {
         sequelize,
-        tableName: 'genres',
+        tableName: 'authors',
       },
     );
     return this;
   }
 
   static associate(models) {
-    Genre.belongsTo(models.BookGenre, { foreignKey: 'id', targetKey: 'genre_id' });
-    Genre.belongsToMany(models.Book, { through: 'books_genre' });
+    Author.hasMany(models.Book, { foreignKey: 'id', targetKey:'author_id'});
   }
 }
 
-export default Genre;
+export default Author;

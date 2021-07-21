@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
-import User from '../models/user';
+import User from '../../models/user';
 import bcrypt from 'bcrypt'
+import { getCep } from '../http/getCep';
 
 
 
@@ -72,14 +73,15 @@ class RegisterNewUser {
             name, username, email, postalCode, readerClassification 
         } = req.body
 
+        const {logradouro, bairro, localidade, uf} = await getCep(postalCode)
         //Gerando hashpassword
         const hashedpassword = await bcrypt.hash(req.body.password, 10)
 
         //Caso nenhuma condicional seja ativada, Usuário será registrado e User será redirecionado para login
         await User.create({ 
-            name, username, email, password: hashedpassword, postalCode, readerClassification 
+            name, username, email, password: hashedpassword, postalCode, readerClassification, logradouro, bairro, localidade, uf
         })
-        return res.status.json("Novo Usuário criado")
+        return res.status(200).json({ message: "Novo Usuário criado"})
         } catch(err){
             console.log(err)
             return res.status(500).json([{
