@@ -8,6 +8,7 @@ import routes from './routes';
 import flash from 'express-flash'
 import session from 'express-session'
 import passport from 'passport';
+import methodOverride from 'method-override'
 
 class App {
   constructor() {
@@ -26,6 +27,7 @@ class App {
     }))
     this.server.use(passport.initialize())
     this.server.use(passport.session())
+    this.server.use(methodOverride('_method'))
   }
 
   routes() {

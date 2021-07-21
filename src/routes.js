@@ -24,5 +24,8 @@ routes.post('/v1/login', Checking.NotAuthenticated, passport.authenticate('local
   )
 })
 
+//DELETE Routes
+routes.delete('/v1/logout', LogoutUser.User)
+
 
 export default routes;
