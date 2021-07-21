@@ -1,6 +1,10 @@
 /* eslint-disable linebreak-style */
 import { Router } from 'express';
+import passport, { session } from 'passport';
 import RegisterNewUser from './app/controllers/RegisterNewUser';
+import passport from 'passport';
+import Checking from './config/auth/checkingFunctions'
+import LogoutUser from './app/controllers/LogoutUser'
 
 const routes = new Router();
 
@@ -12,7 +16,13 @@ routes.get('/', (req, res) => {
 });
 
 //Post Routes
-routes.post('/v1/register', RegisterNewUser.store)
+routes.post('/v1/register', Checking.NotAuthenticated, RegisterNewUser.store)
+
+routes.post('/v1/login', Checking.NotAuthenticated, passport.authenticate('local'), function(req, res){
+  return res.status(200).json({
+    message: "Usuário logado"}
+  )
+})
 
 
 export default routes;
