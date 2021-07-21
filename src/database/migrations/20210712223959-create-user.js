@@ -20,7 +20,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      postalCode: {
+      postal_code: {
         type: Sequelize.STRING
       },
       logradouro: {
@@ -39,7 +39,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      readerClassification: {
+      reader_classification: {
         type: Sequelize.INTEGER
       },
       createdAt: {

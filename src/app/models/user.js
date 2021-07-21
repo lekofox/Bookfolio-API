@@ -23,8 +23,7 @@ class User extends Model {
 
   }, {
     sequelize,
-    modelName: 'users',
-    underscored: false
+    modelName: 'users'
   });
   return this;
 }

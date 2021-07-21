@@ -14,17 +14,26 @@ class RegisterNewUser {
         const schema = await Yup.object().shape({
             name: Yup.string().required(),
             username: Yup.string().required(),
-            email: Yup.string().required(),
-            password: Yup.string().required(),
+            email: Yup.string().email('Email deve ser um email que existe.').required(),
+            password: Yup.string().min(6, 'Senha deve conter no mínimo 6 caracteres.').required(),
             postalCode: Yup.string().required(),
             readerClassification: Yup.string().required(),  
         });
 
         //Se algum dado estiver faltando retorna mensagem de falha de cadastro
         if (!(await schema.isValid(req.body))){
-            return res.status(400).json({
-                message: 'Falha ao cadastrar usuário; Por favor corrija os dados de cadastro'
-            })
+            try {
+                let validated = await schema.validate(req.body, { abortEarly: false });
+              } catch (err) {
+                  var error = []
+                for (let i = 0; i < err.errors.length; i++){
+                    error.push(err.errors[i])
+                }
+                return res.status(400).json([{
+                    message: error
+                }])
+              }
+            
         };
 
         //Constante que retorna verdadeiro se o username enviado já está sendo utilizado
@@ -40,24 +49,24 @@ class RegisterNewUser {
         //Condicional verificando se E-mail e Username já está registrado
         if (UserExists){
             if (EmailExists){
-                return res.status(400).json({
+                return res.status(400).json([{
                     message: "Nome de Usuário e e-mail já etão sendo utilizados"
-                })
+                }])
             }
         }
 
         //Condicional verificando se apenas o Username já está registrado
         if (UserExists){
-            return res.status(400).json({
+            return res.status(400).json([{
                 message: "Nome de Usuário já existe. Por favor escolha outro nome de ususário"
-            })
+            }])
         }
 
         //Condicional verificando se apenas o E-mail já está registrado
         if (EmailExists){
-            return res.status(400).json({
+            return res.status(400).json([{
                 message: "Impossível completar cadastro. Email já registrado"
-            })
+            }])
         }
 
         const { 
@@ -72,13 +81,12 @@ class RegisterNewUser {
         await User.create({ 
             name, username, email, password: hashedpassword, postalCode, readerClassification, logradouro, bairro, localidade, uf
         })
-        console.log("Novo Usuário criado")
-        res.redirect('/v1/login')
+        return res.status(200).json({ message: "Novo Usuário criado"})
         } catch(err){
             console.log(err)
-            return res.status(500).json({
+            return res.status(500).json([{
                 message: "Erro inesperado; Por favor tente novamente"
-            });
+            }]);
         }
     }
 }
