@@ -28,6 +28,7 @@ class CreateBookController {
           publishDate: Yup.date().required(),
           pageNumber: Yup.number().required(),
           rating: Yup.number().required(),
+          genres: Yup.array().required()
         });
   
         // Caso o body não possua todos os campos marcados como obrigatório via YUP, retorna erro 400 com a mensagem descrita abaixo
