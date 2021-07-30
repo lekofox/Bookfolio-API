@@ -20,7 +20,7 @@ class App {
   }
 
   middlewares() {
-    this.server.use(cors({origin: 'http://localhost:3000',credentials: true,}))
+    this.server.use(cors({origin: process.env.client,credentials: true,}))
     this.server.use(express.json());
     this.server.use(express.urlencoded({extended: true}))
     this.server.use(flash())

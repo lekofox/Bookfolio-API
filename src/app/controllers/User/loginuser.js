@@ -16,9 +16,7 @@ class LoginUser{
                         if (err) throw err;
 
                         const token = await bcrypt.hash(user.id.toString(), 10)
-                        res.status(200).json({
-                                token: token
-                        })
+                        res.status(200).send("Authorized")
                     })
                 }
               })(req,res,next)
