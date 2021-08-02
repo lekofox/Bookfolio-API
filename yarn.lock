@@ -393,6 +393,14 @@
   "resolved" "https://registry.npmjs.org/content-type/-/content-type-1.0.4.tgz"
   "version" "1.0.4"
 
+"cookie-parser@^1.4.5":
+  "integrity" "sha512-f13bPUj/gG/5mDr+xLmSxxDsB9DQiTIfhJS/sqjrmfAWiAN+x2O4i/XguTL9yDZ+/IFDanJ+5x7hC4CXT9Tdzw=="
+  "resolved" "https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.5.tgz"
+  "version" "1.4.5"
+  dependencies:
+    "cookie" "0.4.0"
+    "cookie-signature" "1.0.6"
+
 "cookie-signature@1.0.6":
   "integrity" "sha1-4wOogrNCzD7oylE6eZmXNNqzriw="
   "resolved" "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
@@ -412,6 +420,14 @@
   "integrity" "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   "version" "1.0.2"
+
+"cors@^2.8.5":
+  "integrity" "sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g=="
+  "resolved" "https://registry.npmjs.org/cors/-/cors-2.8.5.tgz"
+  "version" "2.8.5"
+  dependencies:
+    "object-assign" "^4"
+    "vary" "^1"
 
 "crypto-random-string@^2.0.0":
   "integrity" "sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA=="
@@ -1212,17 +1228,17 @@
   "resolved" "https://registry.npmjs.org/methods/-/methods-1.1.2.tgz"
   "version" "1.1.2"
 
-"mime-db@1.48.0":
-  "integrity" "sha512-FM3QwxV+TnZYQ2aRqhlKBMHxk10lTbMt3bBkMAp54ddrNeVSfcQYOOKuGuy3Ddrm38I04If834fOUSq1yzslJQ=="
-  "resolved" "https://registry.npmjs.org/mime-db/-/mime-db-1.48.0.tgz"
-  "version" "1.48.0"
+"mime-db@1.49.0":
+  "integrity" "sha512-CIc8j9URtOVApSFCQIF+VBkX1RwXp/oMMOrqdyXSBXq5RWNEsRfyj1kiRnQgmNXmHxPoFIxOroKA3zcU9P+nAA=="
+  "resolved" "https://registry.npmjs.org/mime-db/-/mime-db-1.49.0.tgz"
+  "version" "1.49.0"
 
 "mime-types@~2.1.24":
-  "integrity" "sha512-XGZnNzm3QvgKxa8dpzyhFTHmpP3l5YNusmne07VUOXxou9CqUqYa/HBy124RqtVh/O2pECas/MOcsDgpilPOPg=="
-  "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.31.tgz"
-  "version" "2.1.31"
+  "integrity" "sha512-hJGaVS4G4c9TSMYh2n6SQAGrC4RnfU+daP8G7cSCmaqNjiOoUY0VHCMS42pxnQmVF1GWwFhbHWn3RIxCqTmZ9A=="
+  "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.32.tgz"
+  "version" "2.1.32"
   dependencies:
-    "mime-db" "1.48.0"
+    "mime-db" "1.49.0"
 
 "mime@1.6.0":
   "integrity" "sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg=="
@@ -1413,7 +1429,7 @@
   "resolved" "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   "version" "1.0.1"
 
-"object-assign@^4.0.1", "object-assign@^4.1.0":
+"object-assign@^4", "object-assign@^4.0.1", "object-assign@^4.1.0":
   "integrity" "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM="
   "resolved" "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
   "version" "4.1.1"
@@ -2156,7 +2172,7 @@
   "resolved" "https://registry.npmjs.org/validator/-/validator-13.6.0.tgz"
   "version" "13.6.0"
 
-"vary@~1.1.2":
+"vary@^1", "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   "version" "1.1.2"

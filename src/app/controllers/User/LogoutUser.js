@@ -4,7 +4,7 @@ class Logout {
         //faz o logout
         req.logOut()
 
-        //Redireciona o usuário para a página de login
+        //Mensagem de sucesso
         res.status(200).json({
             message: "usuário deslogado"
         })

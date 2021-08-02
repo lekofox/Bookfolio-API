@@ -9,6 +9,8 @@ import flash from 'express-flash'
 import session from 'express-session'
 import passport from 'passport';
 import methodOverride from 'method-override'
+import cors from 'cors'
+import cookieParser from 'cookie-parser';
 
 class App {
   constructor() {
@@ -18,8 +20,11 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors({origin: process.env.client,credentials: true,}))
     this.server.use(express.json());
+    this.server.use(express.urlencoded({extended: true}))
     this.server.use(flash())
+    this.server.use(cookieParser())
     this.server.use(session({
       secret: process.env.secret,
       resave: false,
