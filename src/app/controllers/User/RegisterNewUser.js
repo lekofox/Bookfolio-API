@@ -16,7 +16,7 @@ class RegisterNewUser {
             username: Yup.string().required(),
             email: Yup.string().email('Email deve ser um email que existe.').required(),
             password: Yup.string().min(6, 'Senha deve conter no mínimo 6 caracteres.').required(),
-            postalCode: Yup.string().required(),
+            postalCode: Yup.string().min(8, 'Código Postal requer 8 números.').required(),
             readerClassification: Yup.string().required(),  
         });
 
@@ -29,9 +29,9 @@ class RegisterNewUser {
                 for (let i = 0; i < err.errors.length; i++){
                     error.push(err.errors[i])
                 }
-                return res.status(400).json([{
+                return res.status(400).json({
                     message: error
-                }])
+                })
               }
             
         };
@@ -49,24 +49,24 @@ class RegisterNewUser {
         //Condicional verificando se E-mail e Username já está registrado
         if (UserExists){
             if (EmailExists){
-                return res.status(400).json([{
+                return res.status(400).json({
                     message: "Nome de Usuário e e-mail já etão sendo utilizados"
-                }])
+                })
             }
         }
 
         //Condicional verificando se apenas o Username já está registrado
         if (UserExists){
-            return res.status(400).json([{
+            return res.status(400).json({
                 message: "Nome de Usuário já existe. Por favor escolha outro nome de ususário"
-            }])
+            })
         }
 
         //Condicional verificando se apenas o E-mail já está registrado
         if (EmailExists){
-            return res.status(400).json([{
+            return res.status(400).json({
                 message: "Impossível completar cadastro. Email já registrado"
-            }])
+            })
         }
 
         const { 
@@ -74,6 +74,12 @@ class RegisterNewUser {
         } = req.body
 
         const {logradouro, bairro, localidade, uf} = await getCep(postalCode)
+
+        if (logradouro === undefined){
+            res.status(400).json({
+                message: "CEP inexistente"
+            })
+        }
         //Gerando hashpassword
         const hashedpassword = await bcrypt.hash(req.body.password, 10)
 
@@ -84,9 +90,9 @@ class RegisterNewUser {
         return res.status(200).json({ message: "Novo Usuário criado"})
         } catch(err){
             console.log(err)
-            return res.status(500).json([{
+            return res.status(500).json({
                 message: "Erro inesperado; Por favor tente novamente"
-            }]);
+            });
         }
     }
 }
