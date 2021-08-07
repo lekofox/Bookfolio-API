@@ -6,12 +6,12 @@ class Checking{
         if (req.isAuthenticated()){
             return next()
         }
-        return res.status(400).send("Unothorized")
+        return res.status(401).send("Unothorized")
     }
 
     async  NotAuthenticated(req, res, next){
         if (req.isAuthenticated()){
-            return res.status(400).send("Unothorized")
+            return res.status(401).send("Unothorized")
         }
 
         return next()
