@@ -19,6 +19,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'authors', key: 'id' },
         onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true
       },
       synopsis: {
         type: Sequelize.STRING
