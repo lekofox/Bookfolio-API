@@ -69,6 +69,7 @@ class ListBook {
               message: 'Gênero não encontrado',
             });
           }
+          
           // Se achar a especialidade passada como parametro mas não houver nenhum médico associado a ela, retorna erro 400 com a mensagem descrita abaixo
           if (result[0].Books.length == 0) {
             return res.status(400).json({

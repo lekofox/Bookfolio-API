@@ -3,6 +3,7 @@ import { Router } from 'express';
 import CreateBookController from './app/controllers/Book/bookCreate';
 import bookList from './app/controllers/Book/bookList';
 import RegisterNewUser from './app/controllers/User/RegisterNewUser';
+import listAuthorController from './app/controllers/Author/authorList'
 
 const routes = new Router();
 
@@ -22,6 +23,7 @@ routes.get('/v1/books', bookList.listAll)
 routes.get('/v1/books/:id', bookList.listById)
 routes.get('/v1/books/title/:title', bookList.listByTitles)
 routes.get('/v1/books/genre/:genre', bookList.listByGenre)
+routes.get('/v1/books/author/:author', listAuthorController.listBookByAuthor)
 
 
 export default routes;
