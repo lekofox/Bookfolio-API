@@ -23,7 +23,7 @@ module.exports = {
         allowNull: true
       },
       synopsis: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       image: {
         type: Sequelize.STRING
@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       buy_link: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       rating: {
         type: Sequelize.INTEGER

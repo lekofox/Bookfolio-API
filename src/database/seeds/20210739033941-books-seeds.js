@@ -272,7 +272,7 @@ module.exports = {
         title: 'Bowie',
         author: 'Wendy Leigh',
         author_id: 10,
-        synopsis: ':A biografia que revela facetas desconhecidas do ídolo pop David Bowie\
+        synopsis: 'A biografia que revela facetas desconhecidas do ídolo pop David Bowie\
         Leigh traça toda a trajetória do músico, desde a infância em sua família problemática,\
         passando pela juventude desvairada em busca do sucesso, até atingir o estrelato e se tornar\
         uma entidade única e inigualável da cultura popular contemporânea. Ao analisar a\
