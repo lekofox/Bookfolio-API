@@ -20,7 +20,7 @@ module.exports = {
         casa. Mas essa sensação logo desaparece, quando ela descobre que o lugar guarda\
         mistérios e perigos, e a menina se dá conta de que voltar para sua verdadeira casa\
         vai ser muito mais difícil ― e assustador ― do que imaginava.",
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/7n85NfJ/coraline.jpg',
         buy_link: "https://www.amazon.com.br/Coraline-Acompanha-marcador-p%C3%A1ginas-especial/dp/8551006754/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3N787DN5YU7NI&dchild=1&keywords=livros+de+fantasia&qid=1627668685&s=books&sprefix=livros+de+fantas%2Cstripbooks%2C313&sr=1-1",
         language: 'Português',
         publish_date: new Date(),
@@ -43,7 +43,7 @@ module.exports = {
         desempenho;\
         ● aprimorar sua técnica por meio da prática inteligente, e utilizar os conhecimentos\
         adquiridos durante um jogo e assim, vencer dentro e fora das quadras.",
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/4YBsnH3/download-2.jpg',
         buy_link: 'https://www.amazon.com.br/Interior-T%C3%AAnis-Cl%C3%A1ssico-Excel%C3%AA\
         ncia-Desempenho/dp/8569371012/ref=sr_1_7?dchild=1&qid=1627671653&refineme\
         nts=p_72%3A17833786011&rnid=5560472011&s=books&sr=1-7\
@@ -77,7 +77,7 @@ module.exports = {
         a aflorar – e pode colocar em perigo a própria Luna e todos à sua volta.“A garota que\
         bebeu a lua é empolgante e denso como os clássicos Peter Pan e O Mágico de Oz.” –\
         The New York Times Book Review',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/QJ3bMnN/515p-NEQAJRL.jpg',
         buy_link: 'https://www.amazon.com.br/Garota-que-Bebeu-Lua/dp/8501110078/ref=sr_1_7?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3N787DN5YU7NI&dchild=1&keywords=livros+de+fantasia&qid=1627669835&s=books&sprefix=livros+de+fantas%2Cstripbooks%2C313&sr=1-7',
         language: 'Português',
         publish_date: new Date(),
@@ -96,7 +96,7 @@ module.exports = {
         ciência social – com exemplos cativantes de pessoas bem-sucedidas que fizeram coisas\
         extraordinárias – Tim Harford nos prova que as qualidades que nós valorizamos são, na\
         verdade, produzidas pela desordem, pela confusão e pelo desarranjo das coisas.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/NtzWBVT/caos-criativo.png',
         buy_link: 'https://www.amazon.com.br/Caos-criativo-resiliente-mundo-arruma%C3%A7%C3%A\
         3o/dp/8581745083?ref_=Oct_d_omwf_d_7841722011&pd_rd_w=D32tD&pf_rd_p=ff1\
         89d57-1a2d-4ee9-963a-61cd7aa22374&pf_rd_r=BEAZ4K0GVMS3A0NQXEMQ&pd_\
@@ -121,7 +121,7 @@ module.exports = {
         abrange uma imensidade de temas, como arte e política, feminismo e homossexualidade,\
         medicina e drogas, radicalismos e fascismo, e que é uma chave indispensável para entender\
         a cultura da modernidade.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/T0W98XB/Sontag.jpg',
         buy_link: 'https://www.amazon.com.br/Sontag-Vida-obra-Benjamin-Moser/dp/8535932836/ref=asc_df_8535932836/?tag=googleshopp00-20&linkCode=df0&hvadid=379800300389&hvpos=&hvnetw=g&hvrand=11800833083220109012&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001773&hvtargid=pla-873882336634&psc=1',
         language: 'Português',
         publish_date: new Date(),
@@ -141,7 +141,7 @@ module.exports = {
         teve que morar na rua. Fala também dos momentos de violência do pai contra a mãe, sua\
         relação com a fé e a igreja, de como a educação o salvou e a descoberta da sexualidade e\
         seu processo de autoconhecimento e aceitação.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/R30K6x3/tem-que-vigorar.jpg',
         buy_link: 'https://www.amazon.com.br/Tem-que-vigorar-aceitei-realizei/dp/6588132042?ref_=Oct_d_oup_d_7841759011&pd_rd_w=Y3iKV&pf_rd_p=4363facb-f26e-4204-b790-09dd2dba71a5&pf_rd_r=DXCD3JG3Z5AZA495ZHP4&pd_rd_r=b88020ce-f06d-48f0-9611-05d26257bbb0&pd_rd_wg=hjagh&pd_rd_i=6588132042',
         language: 'Português',
         publish_date: new Date(),
@@ -160,7 +160,7 @@ module.exports = {
         que o carro em que ela viajava explodisse. Abalada, ela decide adiar o casamento. E\
         nesse meio-tempo descobre segredos que a fazem questionar as pessoas nas quais\
         sempre confiara – a ponto de duvidar se deve se casar afinal.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/pxLqwnP/nos-dois.jpg',
         buy_link: 'https://www.amazon.com.br/hist%C3%B3ria-n%C3%B3s-dois-Dani-Atkins/dp/8580415403',
         language: 'Português',
         publish_date: new Date(),
@@ -184,7 +184,7 @@ module.exports = {
         como isso seria possível, se seu sangue é vermelho? Em meio às intrigas dos nobres\
         prateados, as ações da garota vão desencadear uma dança violenta e fatal, que\
         colocará príncipe contra príncipe - e Mare contra seu próprio coração.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/dcM7s2p/rainha-vermelha.jpg',
         buy_link: 'https://www.amazon.com.br/rainha-vermelha-Victoria-Aveyard/dp/8565765695/ref=sr_1_21_sspa?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3N787DN5YU7NI&dchild=1&keywords=livros+de+fantasia&qid=1627669835&s=books&sprefix=livros+de+fantas%2Cstripbooks%2C313&sr=1-21-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSEQ3VDQxV0RBVjlBJmVuY3J5cHRlZElkPUEwODcwNjYzMVBCSDZTOEVYMzROUCZlbmNyeXB0ZWRBZElkPUEwNjQ2NzA3NVRGNUswUThTTU9TJndpZGdldE5hbWU9c3BfYnRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==',
         language: 'Português',
         publish_date: new Date(),
@@ -212,7 +212,7 @@ module.exports = {
         histórias, seja em imagens ou palavras, e a sua capacidade de transformar a realidade a nossa\
         volta.\
         ',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/27jr1Hb/download-1.jpg',
         buy_link: 'https://www.amazon.com.br/Labirinto-Fauno-Guillermo-Del-Toro/dp/8551005197/ref=sr_1_17?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3N787DN5YU7NI&dchild=1&keywords=livros+de+fantasia&qid=1627669835&s=books&sprefix=livros+de+fantas%2Cstripbooks%2C313&sr=1-17',
         language: 'Português',
         publish_date: new Date(),
@@ -233,7 +233,7 @@ module.exports = {
         percalços que a tornam mais complexa do que mostra a imagem oficial. Ao empreender\
         uma síntese inédita entre vida e obra de uma autora clássica, Benjamin Moser deu uma\
         contribuição de extrema importância para a cultura brasileira.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/c1xsJKF/Clarice.jpg',
         buy_link: 'https://www.amazon.com.br/Clarice-Benjamin-Moser/dp/8535928502/ref=sr_1_2?dch\
         ild=1&qid=1627661473&refinements=p_27%3ABenjamin+Moser&s=books&sr=1-2&t\
         ext=Benjamin+Moser',
@@ -257,7 +257,7 @@ module.exports = {
         tabus —, os dois chamam a atenção de outros jovens que também precisam lidar\
         com questões universais como amor, identidade e a sensação de pertencer.\
         ',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/JH8tJtJ/dois-garotos.jpg',
         buy_link: 'https://www.amazon.com.br/Dois-garotos-beijando-David-Levithan/dp/8501102091/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Dois+garotos+se+beijando&qid=1627658308&s=books&sr=1-1',
         language: 'Português',
         publish_date: new Date(),
@@ -280,7 +280,7 @@ module.exports = {
         a qualquer padrão sexual, a autora também aponta para uma falta de ortodoxia sem\
         precedentes, chave para a desconstrução de tabus e estopim de uma revolução dos\
         costumes de gênero.',
-        publishing_company: 'null',
+        image: 'https://i.ibb.co/8zVqKWr/david-bowie.jpg',
         buy_link: 'https://www3.livrariacultura.com.br/bowie-46284328/p?utmi_cp=8787&adtype=pla&utmi_cp=8102&gclid=CjwKCAjwxo6IBhBKEiwAXSYBsw-FE1He-78Myptnl2kDCfaq6QPilWFGqEztdJXvfmmN04vTYW-wvxoCZwwQAvD_BwE',
         language: 'Português',
         publish_date: new Date(),

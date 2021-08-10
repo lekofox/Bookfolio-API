@@ -25,7 +25,7 @@ module.exports = {
       synopsis: {
         type: Sequelize.STRING
       },
-      publishing_company: {
+      image: {
         type: Sequelize.STRING
       },
       language: {
