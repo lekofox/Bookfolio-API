@@ -37,6 +37,9 @@ module.exports = {
       page_number: {
         type: Sequelize.INTEGER
       },
+      buy_link: {
+        type: Sequelize.STRING
+      },
       rating: {
         type: Sequelize.INTEGER
       },
