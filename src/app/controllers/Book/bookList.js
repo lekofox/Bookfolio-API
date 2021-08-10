@@ -1,16 +1,188 @@
 import { Op } from "sequelize"
 import Book from "../../models/book"
 import Genre from "../../models/genre"
+import Author from "../../models/author"
 class ListBook {
     async listAll(req, res){
-         const result = await Book.findAll()
+        const {typeFilter} = req.query
+        const{filter} = req.query
+        const{search} =req.query
 
-         return res.status(200).json(result)
+        //Busca por genero sem titulo
+        if(typeFilter == 1){
+            const result = await Book.findAll({
+                raw: true,
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name'],
+                    where:{
+                        name: filter
+                    }
+                }, {
+                    model: Author,
+                    attributes: ['name']
+                    }
+                ]
+            })
+            
+            if (result == '') {
+                return res.status(400).json({
+                    error: 404,
+                    message: 'Gênero não encontrado',
+                });
+                }
+    
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+    
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+    
+            }
+            
+    
+                res.status(200).json(response)
+
+            
+            
+        }
+        //Busca por autor sem título
+        else if (typeFilter == 2){
+            const result = await Book.findAll({
+                raw: true,
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name']
+                }, {
+                    model: Author,
+                    attributes: ['name'],
+                    where:{
+                        name: filter
+                    }
+                    }
+                ]
+            })
+        
+            if (result == '') {
+            return res.status(400).json({
+                error: 404,
+                message: 'Autor não encontrado',
+            });
+            }
+        
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+        
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+        
+            }
+            
+            return res.status(200).json(response)
+        }
+
+        else{
+            const result = await Book.findAll({
+                raw: true,
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name'],
+                }, {
+                    model: Author,
+                    attributes: ['name']
+                    }
+                ]
+            })
+
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+    
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+    
+            }
+            res.status(200).json(response)
+        }
     }
 
     async listById(req, res){
         const {id} = req.params
-        const result = await Book.findOne({where: {id}})
+        const result = await Book.findOne({
+            raw: true,
+            where: {id},
+            attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name'],
+                }, {
+                    model: Author,
+                    attributes: ['name', 'description']
+                    }
+                ]
+        })
 
         if(!result){
             return res.status(404).json({
@@ -18,27 +190,202 @@ class ListBook {
                 message: 'Not Found'
             })
         }
+            if (req.user.readerClassification == 1){
+
+                result.time_to_read = result.time_to_read = Math.round(result.pageNumber/10)
+                
+            }
+
+            if (req.user.readerClassification == 2){
+                result.time_to_read = Math.round(result.pageNumber/25)
+                
+            }
+
+            if (req.user.readerClassification == 3){
+                result.time_to_read = Math.round(result.pageNumber/35)
+                
+            }
         return res.status(200).json(result)
     }
 
     async listByTitles(req, res){
-        const {title} = req.params
-        const result = await Book.findAll(
-            { where: {
-                title: {
-                    [Op.like]: '%' + title + '%'
-                }
-            }
-        }
-        )
-        if(!result){
-            return res.status(404).json({
-                error: 404,
-                message: 'Not Found'
-            })
-        }
+        const{typeFilter} = req.query
+        const{filter} = req.query
+        const{search} =req.query
 
-        return res.status(200).json(result)
+        console.log(typeFilter, filter, search)
+
+         //Busca por genero com título
+        if(typeFilter == 1){
+            const result = await Book.findAll({
+                raw: true,
+                where: {
+                title: {
+                    [Op.like]: '%' + search + '%'
+                }
+            },
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name'],
+                    where:{
+                        name: filter
+                    }
+                }, {
+                    model: Author,
+                    attributes: ['name']
+                    }
+                ]
+            })
+            
+            if (result == '') {
+                return res.status(400).json({
+                    error: 404,
+                    message: 'Gênero não encontrado',
+                });
+                }
+    
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+    
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+    
+            }
+            
+    
+                res.status(200).json(response)
+
+            
+            
+        }
+        //Busca por autor com título
+        else if (typeFilter == 2){
+            const result = await Book.findAll({
+                raw: true,
+                where: {
+                title: {
+                    [Op.like]: '%' + search + '%'
+                }
+            },
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name']
+                }, {
+                    model: Author,
+                    attributes: ['name'],
+                    where:{
+                        name: filter
+                    }
+                    }
+                ]
+            })
+        
+            if (result == '') {
+            return res.status(400).json({
+                error: 404,
+                message: 'Autor não encontrado',
+            });
+            }
+        
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+        
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+        
+            }
+            
+            
+            return res.status(200).json(response)
+        }
+        //busca apenas com título
+        else{
+            const result = await Book.findAll({
+                raw: true,
+                where: {
+                title: {
+                    [Op.like]: '%' + search + '%'
+                }
+            },
+                attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
+                include:[{
+                    through: {
+                        attributes:[],
+                    },
+                    model: Genre,
+                    attributes: ['name'],
+                }, {
+                    model: Author,
+                    attributes: ['name']
+                    }
+                ]
+            })
+
+            const response = []
+            for(let i in result){
+                const object = result[i]
+                if (req.user.readerClassification == 1){
+    
+                    object.time_to_read = object.time_to_read = Math.round(object.pageNumber/10)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 2){
+                    object.time_to_read = Math.round(object.pageNumber/25)
+                    response.push(object)
+                    
+                }
+        
+                if (req.user.readerClassification == 3){
+                    object.time_to_read = Math.round(object.pageNumber/35)
+                    response.push(object)
+                    
+                }
+    
+            }
+            res.status(200).json(response)
+        }
     }
 
     async listByGenre(req,res){
