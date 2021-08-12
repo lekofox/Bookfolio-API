@@ -6,7 +6,6 @@ class LoginUser{
     async login(req,res, next){
         try {
             passport.authenticate('local', function(err,user,info){
-                console.log(user)
                 if (user === false){
                   return res.status(400).json({
                     error: "Email/Senha incorretos"

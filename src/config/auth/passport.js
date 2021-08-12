@@ -27,7 +27,8 @@ function initialize(passport){
         }
     }
     passport.use(new LocalStrategy({ usernameField: 'name', passwordField: 'password'}, authenticateLogin))
-    passport.serializeUser(async (user, done) => done(null, user.id))
+    passport.serializeUser(async (user, done) => {console.log(user)
+        done(null, user.id)})
     passport.deserializeUser(async (id, done) => done(null, await auth.getUserbyID(id)))
 }
 
