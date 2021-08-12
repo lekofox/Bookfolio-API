@@ -29,5 +29,8 @@
     "sequelize-cli": "^6.2.0",
     "sucrase": "^3.20.0",
     "yup": "^0.32.9"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
