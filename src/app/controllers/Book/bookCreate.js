@@ -4,17 +4,6 @@ import Genre from "../../models/genre";
 import BookGenre from "../../models/bookgenre";
 
 
-
-/**
- *  title: Sequelize.STRING,
-        author: Sequelize.STRING,
-        synopsis: Sequelize.STRING,
-        publishingCompany: Sequelize.STRING,
-        language: Sequelize.STRING,
-        publishDate: Sequelize.DATE,
-        pageNumber: Sequelize.INTEGER,
-        rating: Sequelize.INTEGER,
- */
 class CreateBookController {
     // Cria um novo registro de um médico
     async store(req, res) {
