@@ -23,6 +23,7 @@ class App {
     this.server.use(cors({origin: process.env.client,credentials: true,}))
     this.server.use(express.json());
     this.server.use(express.urlencoded({extended: true}))
+    this.server.enable('trust proxy')
     this.server.use(flash())
     this.server.use(cookieParser())
     this.server.use(session({
