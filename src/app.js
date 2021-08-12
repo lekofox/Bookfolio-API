@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production'){
 import express from 'express';
 import routes from './routes';
 import flash from 'express-flash'
-import session from 'express-session'
+import session from 'cookie-session'
 import passport from 'passport';
 import methodOverride from 'method-override'
 import cors from 'cors'
@@ -28,7 +28,7 @@ class App {
     this.server.use(session({
       secret: process.env.secret,
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: true
     }))
     this.server.use(passport.initialize())
     this.server.use(passport.session())
