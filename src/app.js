@@ -32,8 +32,8 @@ class App {
       saveUninitialized: false,
       cookie: {
         path: '/',
-        domain: '.herokuapp.com',
-        maxAge: 1000 * 60 * 48 // 24 hours
+        domain: process.env.domain,
+        maxAge: 1000 * 60 * 48 
       }
     }))
     this.server.use(passport.initialize())
