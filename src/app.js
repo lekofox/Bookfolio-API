@@ -32,7 +32,7 @@ class App {
       saveUninitialized: false,
       cookie: {
         path: '/',
-        sameSite: none,
+        sameSite: 'none',
         secure: true,
         domain: process.env.domain,
         maxAge: 1000 * 60 * 48 
