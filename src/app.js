@@ -25,6 +25,7 @@ class App {
     this.server.use(express.urlencoded({extended: true}))
     this.server.use(flash())
     this.server.use(cookieParser())
+    this.server.set("trust proxy", 1)
     this.server.use(session({
       secret: process.env.secret,
       resave: false,
