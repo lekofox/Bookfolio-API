@@ -8,6 +8,8 @@ class ListBook {
         const{filter} = req.query
         const{search} =req.query
 
+        console.log(req.user)
+
         //Busca por genero sem titulo
         if(typeFilter == 1 && (filter!== 'undefined' && filter !==null)){
             const result = await Book.findAll({
