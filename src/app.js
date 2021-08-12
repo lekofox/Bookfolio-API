@@ -32,7 +32,7 @@ class App {
       saveUninitialized: false,
       cookie: {
         path: '/',
-        domain: '.heroku.com',
+        domain: '.herokuapp.com',
         maxAge: 1000 * 60 * 48 // 24 hours
       }
     }))
