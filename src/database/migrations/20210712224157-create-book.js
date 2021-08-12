@@ -19,11 +19,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'authors', key: 'id' },
         onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true
       },
       synopsis: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      publishing_company: {
+      image: {
         type: Sequelize.STRING
       },
       language: {
@@ -34,6 +36,9 @@ module.exports = {
       },
       page_number: {
         type: Sequelize.INTEGER
+      },
+      buy_link: {
+        type: Sequelize.TEXT
       },
       rating: {
         type: Sequelize.INTEGER

@@ -6,6 +6,7 @@ import CreateBookController from './app/controllers/Book/bookCreate';
 import bookList from './app/controllers/Book/bookList';
 import RegisterNewUser from './app/controllers/User/RegisterNewUser';
 import loginuser from './app/controllers/User/loginuser';
+import listAuthorController from './app/controllers/Author/authorList'
 
 const routes = new Router();
 
@@ -26,10 +27,11 @@ routes.post('/v1/books', CreateBookController.store)
 routes.delete('/v1/logout', LogoutUser.User)
 //GET Routes
 routes.get('/v1/books', bookList.listAll)
-routes.get('/v1/books/:id', bookList.listById)
-routes.get('/v1/books/title/:title', bookList.listByTitles)
+routes.get('/v1/books/id/:id', bookList.listById)
+routes.get('/v1/books/title', bookList.listByTitles)
 routes.get('/v1/books/genre/:genre', bookList.listByGenre)
 routes.get('/v1/login/', Checking.Authenticated, loginuser.getinfo)
+routes.get('/v1/books/author/:author', listAuthorController.listBookByAuthor)
 
 
 export default routes;
