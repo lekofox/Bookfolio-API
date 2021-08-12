@@ -1,4 +1,4 @@
-import { Op } from "sequelize"
+import { INTEGER, Op } from "sequelize"
 import Book from "../../models/book"
 import Genre from "../../models/genre"
 import Author from "../../models/author"
@@ -9,7 +9,7 @@ class ListBook {
         const{search} =req.query
 
         //Busca por genero sem titulo
-        if(typeFilter == 1){
+        if(typeFilter == 1 && (filter!== 'undefined' && filter !==null)){
             const result = await Book.findAll({
                 raw: true,
                 attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
@@ -67,7 +67,7 @@ class ListBook {
             
         }
         //Busca por autor sem título
-        else if (typeFilter == 2){
+        else if (typeFilter == 2 && (filter!== 'undefined' && filter !==null)){
             const result = await Book.findAll({
                 raw: true,
                 attributes: ["id","title","synopsis","pageNumber", 'image', 'buy_link'],
@@ -216,7 +216,7 @@ class ListBook {
         console.log(typeFilter, filter, search)
 
          //Busca por genero com título
-        if(typeFilter == 1){
+        if(typeFilter == 1 && (filter!== 'undefined' && filter !==null)){
             const result = await Book.findAll({
                 raw: true,
                 where: {
@@ -279,7 +279,7 @@ class ListBook {
             
         }
         //Busca por autor com título
-        else if (typeFilter == 2){
+        else if (typeFilter == 2 && (filter!== 'undefined' && filter !==null)){
             const result = await Book.findAll({
                 raw: true,
                 where: {
