@@ -28,7 +28,9 @@ class App {
     this.server.use(session({
       secret: process.env.secret,
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: false,
+      sameSite: 'none',
+      secure: true 
     }))
     this.server.use(passport.initialize())
     this.server.use(passport.session())
