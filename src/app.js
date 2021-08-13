@@ -22,17 +22,6 @@ class App {
   middlewares() {
     this.server.use(cors({origin: process.env.client,credentials: true,}))
     this.server.use(express.json())
-    this.server.use(function(req, res, next) {
-      res.header('Access-Control-Allow-Credentials', true);
-      res.header('Access-Control-Allow-Origin', req.headers.origin);
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-      res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-      if ('OPTIONS' == req.method) {
-        res.send(200);
-    } else {
-        next();
-    }
-   });
     this.server.use(express.urlencoded({extended: true}))
     this.server.use(flash())
     this.server.use(cookieParser())
@@ -43,8 +32,6 @@ class App {
       saveUninitialized: false,
       cookie: {
         path: '/',
-        sameSite: 'none',
-        secure: true,
         domain: process.env.domain,
         maxAge: 1000 * 60 * 48 
       }
